@@ -1,0 +1,26 @@
+# /etc/conf.d/extnd: config file for /etc/init.d/extnd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/extn/extn.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/extnd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/extnd.pid"
+
+# Where to write extnd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/extnd"
+
+# User and group to own extnd process
+#BITCOIND_USER="extn"
+#BITCOIND_GROUP="extn"
+
+# Path to extnd executable
+#BITCOIND_BIN="/usr/bin/extnd"
+
+# Nice value to run extnd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""
