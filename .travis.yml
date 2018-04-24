@@ -76,17 +76,9 @@ script:
 after_script:
     - echo $TRAVIS_COMMIT_RANGE
     - echo $TRAVIS_COMMIT_LOG
-before_deploy:
-  - chmod +x $TRAVIS_BUILD_DIR/contrib/travis-artifacts/collect-artifacts.sh
-  - $TRAVIS_BUILD_DIR/contrib/travis-artifacts/collect-artifacts.sh $TRAVIS_BUILD_DIR $OUTDIR build $TRAVIS_COMMIT $HOST
-  - if [ -n "$TRAVIS_TAG" ] ; then $TRAVIS_BUILD_DIR/contrib/travis-artifacts/collect-artifacts.sh $TRAVIS_BUILD_DIR $OUTDIR release-build $TRAVIS_TAG $HOST ; fi
-deploy:
-  - provider: releases
-    skip_cleanup: true
-    api_key: $GITHUB_OAUTH_TOKEN
-    file_glob: true
-    file: $TRAVIS_BUILD_DIR/bitcoin-*/*
-    on:
-      branch: master
-      repo: nashanas/ExtensiveCoinMN
-      tags: false
+    - chmod +x $TRAVIS_BUILD_DIR/contrib/travis-artifacts/collect-artifacts.sh
+    - $TRAVIS_BUILD_DIR/contrib/travis-artifacts/collect-artifacts.sh $TRAVIS_BUILD_DIR $OUTDIR build $TRAVIS_COMMIT $HOST
+  after_success:
+    - tar -czf package.tgz $TRAVIS_BUILD_DIR/build
+    - export SSHPASS=$DEPLOY_PASS
+    - sshpass -e scp package.tgz $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
