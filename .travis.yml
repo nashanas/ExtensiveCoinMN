@@ -83,7 +83,7 @@ before_deploy:
 deploy:
   - provider: releases
     skip_cleanup: true
-    api_key: a9c68ca1c4d209789f8ac3e118b1e2110420afc0
+    api_key: $GITHUB_OAUTH_TOKEN
     file_glob: true
     file: $TRAVIS_BUILD_DIR/bitcoin-*/*
     on:
