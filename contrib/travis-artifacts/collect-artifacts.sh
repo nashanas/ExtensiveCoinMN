@@ -23,9 +23,9 @@ ZIPFILES=$(ls $OUTDIR/bin/* || true)
        zip -uj $RELEASEDIR/extn-$COMMIT.zip ${ZIPFILES}
 
 # MaxOSX artifacts
-cp -a EXTN-Core.dmg $RELEASEDIR || true
+cp -a *.dmg $RELEASEDIR || true
 
 # Windows artifacts
-cp -a extn-*-win*-setup.exe $RELEASEDIR || true
+cp -a *.exe $RELEASEDIR || true
 
 find $RELEASEDIR
