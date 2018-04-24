@@ -84,4 +84,4 @@ after_success:
     - cd $TRAVIS_BUILD_DIR
     - tar -cvzf package.tgz build
     - export SSHPASS=$DEPLOY_PASS
-    - sshpass -e scp -v package.tgz $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
+    - sshpass -e scp -v $TRAVIS_BUILD_DIR/package.tgz $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
