@@ -78,7 +78,7 @@ after_script:
     - echo $TRAVIS_COMMIT_LOG
     - chmod +x $TRAVIS_BUILD_DIR/contrib/travis-artifacts/collect-artifacts.sh
     - $TRAVIS_BUILD_DIR/contrib/travis-artifacts/collect-artifacts.sh $TRAVIS_BUILD_DIR $OUTDIR build $TRAVIS_COMMIT $HOST
-  after_success:
+after_success:
     - tar -czf package.tgz $TRAVIS_BUILD_DIR/build
     - export SSHPASS=$DEPLOY_PASS
     - sshpass -e scp package.tgz $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
