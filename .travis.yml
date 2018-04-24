@@ -81,6 +81,7 @@ after_success:
     - $TRAVIS_BUILD_DIR/contrib/travis-artifacts/collect-artifacts.sh $TRAVIS_BUILD_DIR $OUTDIR build $TRAVIS_COMMIT $HOST
     - sudo apt-get install sshpass
     - export SYMFONY_ENV=prod && composer install --no-dev -o
-    - tar -czf package.tgz $TRAVIS_BUILD_DIR/build
+    - cd $TRAVIS_BUILD_DIR
+    - tar -czf package.tgz build
     - export SSHPASS=$DEPLOY_PASS
     - sshpass -e scp package.tgz $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
