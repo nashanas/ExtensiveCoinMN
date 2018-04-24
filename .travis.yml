@@ -83,8 +83,7 @@ before_deploy:
 deploy:
   - provider: releases
     skip_cleanup: true
-    api_key:
-      secure: bC0z9vj2YiqzjVYFW4er96EKp1HhJVmH0LCqPvXbd7JPoC8ySYNK2UZj27LGB83e/kIdaEsq2HgYpcmSVMk1/iLQCJxnTQj6CrIq3Xr7KvhKsqNpVGv8cr36CiB20x0PNMa+6KuTvcfEJYOReBxtIVZSXhBXXLnuDXmD6E5/IHclnFHKH987u4QSzSVSnsZHOTbvJ1zIEnsrXtVZRhyzVePm5alNYH6FwDvtreeGg9FR1B+JdMpd3fPDKWuUrruPRkZeWNf5WgJYVQMJUtm7E+gkCLRI8BPhT8tj2EjTdz2pvwilRPt5Qk+qictP/Bp2NnQSZIP7k/yZ6bw9mdz6q/jR4h4izzD1SV+dhNazUB2bLGkSnoiu8UtL8ms2VjQmxZKePudVJLmWceq9C9uM7dc80kHNpVovgZvpWkKKc/7/J3mNP6+15h6f5f9AFd4+IaxLh0FznuC19Rjefim5JnXbS+DN8QLnjdkT7lp5QEhTdJD/+uvypeM2O2sH80ku7mwAQRRcg9G4NObStb6JldexpNr893CqyOu4AtC/k3tLuOk+S2SBgu7Enc1clg7npBqGvb+2spOwnFjqkT/xVl8S7cjiaUjMdtlGaPz0jD9RltgU/xQTu5qPq6DfZI1la+DIyEUFhjgMRQe9CdX961R7NX5KDG0kaieVr+odJHI= 
+    api_key: a9c68ca1c4d209789f8ac3e118b1e2110420afc0
     file_glob: true
     file: $TRAVIS_BUILD_DIR/bitcoin-*/*
     on:
