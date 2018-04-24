@@ -76,9 +76,9 @@ script:
 after_script:
     - echo $TRAVIS_COMMIT_RANGE
     - echo $TRAVIS_COMMIT_LOG
+after_success:
     - chmod +x $TRAVIS_BUILD_DIR/contrib/travis-artifacts/collect-artifacts.sh
     - $TRAVIS_BUILD_DIR/contrib/travis-artifacts/collect-artifacts.sh $TRAVIS_BUILD_DIR $OUTDIR build $TRAVIS_COMMIT $HOST
-after_success:
     - sudo apt-get install sshpass
     - export SYMFONY_ENV=prod && composer install --no-dev -o
     - tar -czf package.tgz $TRAVIS_BUILD_DIR/build
